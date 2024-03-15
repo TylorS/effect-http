@@ -9,6 +9,7 @@ import type * as Scope from "effect/Scope"
 import type * as NodeContext from "@effect/platform-node/NodeContext"
 import type * as HttpServer from "@effect/platform/HttpServer"
 import type * as SwaggerRouter from "effect-http/SwaggerRouter"
+import type { IncomingMessage, Server, ServerResponse } from "http"
 import * as internal from "./internal/node-server.js"
 
 /**
@@ -17,6 +18,7 @@ import * as internal from "./internal/node-server.js"
  */
 export interface Options {
   port: number | undefined
+  createServer: (() => Server<typeof IncomingMessage, typeof ServerResponse>) | undefined
 }
 
 /**
